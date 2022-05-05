@@ -1,19 +1,14 @@
-import { BrowserRouter } from 'react-router-dom'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import './App.css'
-import AuthLayout from './components/AuthLayout'
-import UnAuthLayout from './components/UnAuthLayout'
-import { useAuth } from './contexts/AuthContext'
-import { ThemeProvider } from './contexts/ThemeContext'
+import IchorDashboard from './demos/ichor'
 
 const App = () => {
 
-  const [auth] = useAuth()
-
   return (
     <BrowserRouter>
-      <ThemeProvider>
-        {auth ? <AuthLayout /> : <UnAuthLayout />}
-      </ThemeProvider>
+      <Routes>
+        <Route path='/' element={<IchorDashboard />} />
+      </Routes>
     </BrowserRouter>
   )
 }
